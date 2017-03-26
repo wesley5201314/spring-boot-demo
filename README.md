@@ -112,3 +112,25 @@ swagger2 ： http://localhost:8080/swagger-ui.html 如图：
 			return apiInfo;
 		}
 	}
+
+添加jsp支持（spring boot 不推荐jsp做视图）
+
+jsp配置，在属性配置文件中添加如下，或者隐式配置（在代码中编写）：
+
+	#jsp视图设置
+	spring.mvc.view.prefix=/WEB-INF/jsp/
+	spring.mvc.view.suffix=.jsp
+
+spring boot 支持servlet配置：
+
+	/**
+	 * Created by wesley on 2017-03-25.
+	 * spring boot jsp支持
+	 */
+	public class JspInitContext extends SpringBootServletInitializer {
+	
+	    @Override
+	    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+	        return application.sources(App.class);
+	    }
+	}
